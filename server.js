@@ -3,12 +3,14 @@ const app = express();
 const router = require("./network/routes");
 const { NODE_ENV } = process.env;
 const dbConfig = require("./config").db;
+const path = require("path");
 const sequelize = require("./db")(dbConfig);
 const errors = require("./network/errors");
 
 require("./api/associations");
 
 app.use(express.json());
+app.use(express.static("public"));
 
 router(app);
 
@@ -24,7 +26,7 @@ const server = app.listen(3000, function () {
     // await sequelize.models.Guardarropa.sync({ force: true });
     // await Prenda.sync({ force: true });
     //await sequelize.models.Atuendo.sync({ force: false });
-    await sequelize.sync({ force: true });
+    //await sequelize.sync({ force: true });
     console.log("Successfully conected to database");
   })();
 });
