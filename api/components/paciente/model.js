@@ -3,7 +3,7 @@ const dbConfig = require("../../../config").db;
 const sequelize = require("../../../db")(dbConfig);
 const bcrypt = require("bcrypt");
 
-const User = sequelize.define("User", {
+const Paciente = sequelize.define("Paciente", {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -12,11 +12,11 @@ const User = sequelize.define("User", {
     validate: {
       len: {
         args: [2, 32],
-        msg: "Userame length must be between 2 and 32 characters",
+        msg: "Username length must be between 2 and 32 characters",
       },
     },
   },
-  name: {
+  nombre: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
@@ -26,7 +26,7 @@ const User = sequelize.define("User", {
       },
     },
   },
-  lastname: {
+  apellido: {
     type: DataTypes.STRING,
     allowNull: false,
     validate: {
@@ -51,33 +51,29 @@ const User = sequelize.define("User", {
       len: [8, 16],
     },
   },
-  telephone: {
+  nroTelefono: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  age: {
+  edad: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  gender: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-  },
-  country: {
+  nacionalidad: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
 });
 
-User.beforeCreate((user, options) => {
+Paciente.beforeCreate((paciente, options) => {
   return bcrypt
-    .hash(user.password, 10)
+    .hash(paciente.password, 10)
     .then((hash) => {
-      user.password = hash;
+      paciente.password = hash;
     })
     .catch((err) => {
       throw new Error("Error at hashing password: " + err);
     });
 });
 
-module.exports = User;
+module.exports = Paciente;

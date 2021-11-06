@@ -1,7 +1,7 @@
-const users = require("../api/components/user/network");
+const pacientes = require("../api/components/paciente/network");
 
 const routes = function (server) {
-  server.use("/users", users);
+  server.use("/pacientes", pacientes);
 };
 
 module.exports = routes;
