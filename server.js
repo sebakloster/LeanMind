@@ -19,12 +19,7 @@ const server = app.listen(3000, function () {
   console.log("App listening on port 3000");
 
   (async () => {
-    // await PrendaTipo.sync({ force: true });
-    // await sequelize.models.User.sync({ force: true });
-    // await sequelize.models.Guardarropa.sync({ force: true });
-    // await Prenda.sync({ force: true });
-    //await sequelize.models.Atuendo.sync({ force: false });
-    await sequelize.sync({ force: true });
+    //await sequelize.sync({ force: true });
     console.log("Successfully conected to database");
   })();
 });
