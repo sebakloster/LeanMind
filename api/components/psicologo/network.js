@@ -26,6 +26,10 @@ router.delete("/:username", function (req, res, next) {
     .catch(next);
 });
 
+router.get("/sign-up", function (req, res, next) {
+  res.render("psi-signup");
+});
+
 router.get("/:username", function (req, res, next) {
   controller
     .getPsicologoByUsername(req.params.username)

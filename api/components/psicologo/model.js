@@ -55,8 +55,8 @@ const Psicologo = sequelize.define("Psicologo", {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  edad: {
-    type: DataTypes.INTEGER,
+  fechaNacimiento: {
+    type: DataTypes.DATE,
     allowNull: false,
   },
   nacionalidad: {

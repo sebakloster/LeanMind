@@ -26,6 +26,10 @@ router.delete("/:username", function (req, res, next) {
     .catch(next);
 });
 
+router.get("/sign-up", function (req, res, next) {
+  res.render("pac-signup");
+});
+
 router.get("/:username", function (req, res, next) {
   controller
     .getPacienteByUsername(req.params.username)
