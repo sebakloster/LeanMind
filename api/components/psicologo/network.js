@@ -5,50 +5,59 @@ const controller = require("./controller");
 
 router.get("/", function (req, res, next) {
   controller
-    .getUsers()
-    .then((users) => {
-      response.success(req, res, users, 200);
+    .getPsicologos()
+    .then((psicologos) => {
+      response.success(req, res, psicologos, 200);
     })
     .catch(next);
 });
 
 router.delete("/:username", function (req, res, next) {
   controller
-    .deleteUser(req.params.username)
+    .deletePsicologo(req.params.username)
     .then(() => {
       response.success(
         req,
         res,
-        `User ${req.params.username} has been deleted`,
+        `Psicologo ${req.params.username} has been deleted`,
         200
       );
     })
     .catch(next);
 });
 
+router.get("/sign-up", function (req, res, next) {
+  res.render("psi-signup");
+});
+
 router.get("/:username", function (req, res, next) {
   controller
-    .getUserByUsername(req.params.username)
-    .then((user) => {
-      response.success(req, res, user, 200);
+    .getPsicologoByUsername(req.params.username)
+    .then((psicologo) => {
+      response.success(req, res, psicologo, 200);
     })
     .catch(next);
 });
 
 router.post("/sign-up", function (req, res, next) {
   controller
-    .createUser(req.body)
+    .createPsicologo(req.body)
     .then(() => {
-      response.success(req, res, "User created", 201);
+      response.success(req, res, "Psicologo created", 201);
     })
     .catch(next);
 });
 
 router.patch("/:username", function (req, res, next) {
   controller
-    .updateUser(req.params.username, req.body)
+    .updatePsicologo(req.params.username, req.body)
     .then(() => {
-      response.success(req, res, `User ${req.params.username} updated`, 200);
+      response.success(
+        req,
+        res,
+        `Psicologo ${req.params.username} updated`,
+        200
+      );
     })
     .catch(next);
 });
