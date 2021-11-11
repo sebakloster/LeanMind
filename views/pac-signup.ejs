@@ -2,46 +2,54 @@
 <html lang="en">
   <%- include('template/head', {title: 'Registro Pacientes'}); %>
 <body>
-  <div class="container">
+  <div class="container mt-5">
     <form action="/pacientes/sign-up" method="POST">
-      <div class="form-group">
-        <label for="username">Nombre de usuario</label>
-        <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="username">Nombre de usuario</label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
+      <div class="form-row ">
+        <div class="form-group col-md-6">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
+        </div>
       </div>
-      <div class="form-group">
-        <label for="apellido">Apellido</label>
-        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingrese su apellido">
+      <div class="form-row ">
+        <div class="form-group col-md-6">
+          <label for="nroTelefono">Numero de telefono</label>
+          <input type="text" class="form-control" id="nroTelefono" name="nroTelefono" placeholder="Ingrese su numero de telefono">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="fechaNacimiento">Fecha de nacimiento</label>
+          <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese su fecha de nacimiento">
+        </div>
+    </div>
+    <div class="form-row ">
+        <div class="form-group col-md-6">
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="nacionalidad">Nacionalidad</label>
+          <select class="form-control" id="nacionalidad" name="nacionalidad">
+            <option value="1">Argentina</option>
+            <option value="2">Venezuela</option>
+            <option value="3">Uruguay</option>
+            <option value="4">Paraguay</option>
+            <option value="5">Colombia</option>
+          </select>
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ingrese su email">
-      </div>
-      <div class="form-group">
-        <label for="nroTelefono">Numero de telefono</label>
-        <input type="text" class="form-control" id="nroTelefono" name="nroTelefono" placeholder="Ingrese su numero de telefono">
-      </div>
-      <div class="form-group">
-        <label for="fechaNacimiento">Fecha de nacimiento</label>
-        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese su fecha de nacimiento">
-      </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
-      </div>
-      <div class="form-group">
-        <label for="nacionalidad">Nacionalidad</label>
-        <select class="form-control" id="nacionalidad" name="nacionalidad">
-          <option value="1">Argentina</option>
-          <option value="2">Venezuela</option>
-          <option value="3">Uruguay</option>
-          <option value="4">Paraguay</option>
-          <option value="5">Colombia</option>
-        </select>
-      </div>
+    </div>
       <button type="submit" class="btn btn-primary">Registrarse</button>
     </form>
   </div>
