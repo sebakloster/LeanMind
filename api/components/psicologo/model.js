@@ -7,7 +7,6 @@ const Psicologo = sequelize.define("Psicologo", {
   username: {
     type: DataTypes.STRING,
     allowNull: false,
-    primaryKey: true,
     unique: true,
     validate: {
       len: {
