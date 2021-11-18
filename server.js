@@ -27,6 +27,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+app.get("/auth", (req, res) => {
+  res.render("auth-index");
+});
+
+
 // Cargamos el ruteo
 router(app);
 
